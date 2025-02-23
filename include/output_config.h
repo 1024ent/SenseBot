@@ -16,14 +16,14 @@
 // TB6612FNG PWM PIN LEFT MOTOR
 #define   LEFT_PWM    13
 const int pwmChannel_left = 1;       // PWM channel (0-15)
-const int pwmFrequency_left = 5000;  // Frequency in Hz
-const int pwmResolution_left = 8;    // Resolution in bits (0-255)
+const int FL_offset = 1;
+const int RL_offset = 1;
 
 // TB6612FNG PWM PIN RIGHT MOTOR
 #define   RIGHT_PWM   4
 const int pwmChannel_right = 0;       // PWM channel (0-15)
-const int pwmFrequency_right = 5000;  // Frequency in Hz
-const int pwmResolution_right = 8;    // Resolution in bits (0-255)
+const int FR_offset = 1;
+const int RR_offset = 1;
 
 // LEFT FRONT MOTOR
 #define   LEFT_AIN1  27
