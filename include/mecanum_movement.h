@@ -9,6 +9,9 @@
 #ifndef __MECANUM_MOVEMENT_H__
 #define __MECANUM_MOVEMENT_H__
 
+#include "tb6612.h"
+#include "PS4Controller.h"
+
 void controller_manager(void *pvParameters);
 
 #endif 
