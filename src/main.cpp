@@ -1,5 +1,18 @@
+/**
+ * @file main.cpp
+ * @brief main ESP32 Mainboard
+ * @copyright UMPSA ROBOTICS
+ * @licenseLoo Hui Kie [ELPROG]
+ */
 #include <Arduino.h>
-#include <PS4Controller.h>
+#include "driver/gpio.h"
+#include "sdkconfig.h"
+#include "PS4Controller.h"
+#include "thread_manager.h"
+#include "input_config.h"
+#include "output_config.h"
+#include "std_movement.h"
+#include "mecanum_movement.h"
 
 // Line Sensor Pins
 #define   LINE_D1     33
