@@ -15,25 +15,6 @@
 #include "mecanum_movement.h"
 #include "tb6612.h"
 
-// Speed and Delay Duration Declaration
-#define MID_SPEED 100    
-#define HIGH_SPEED 120    
-#define LOW_SPEED 90
-#define LONG_DELAY_TIME 110 
-#define DELAY_TIME 80 
-#define SHORT_DELAY_TIME 70 
-
-// Motor Driver Function Declaration
-void FL_fwd(int speed);                                 // Front Left Rotate Clockwise
-void FL_rev(int speed);                                 // Front Left Rotate Counter Clockwise
-void RL_fwd(int speed);                                 // Rear Left Rotate Clockwise
-void RL_rev(int speed);                                 // Rear Left Rotate Counter Clockwise
-void FR_fwd(int speed);                                 // Front Right Rotate Clockwise
-void FR_rev(int speed);                                 // Front Right Rotate Counter Clockwise
-void RR_fwd(int speed);                                 // Rear Right Rotate Clockwise
-void RR_rev(int speed);                                 // Rear RIght Rotate Counter Clockwise
-void brake(int speed);                                  // Stop all motor
-
 // Standard Wheel Movement Function Declaration
 void std_fwd(int speed);                                  // Standard Wheel Move Foward 
 void std_rev(int speed);                                  // Standard Wheel Reverse
@@ -71,82 +52,20 @@ void loop()
 
 }
 
-// Motor Driver Function
-void FL_fwd(int speed){
-  digitalWrite(LEFT_AIN1,1);
-  digitalWrite(LEFT_AIN2,0);
-  ledcWrite(pwmChannel_left, speed);
-}
+// // Standard Wheel Movement Function
+// void std_fwd(int speed){
+//   FL_fwd(speed);
+//   RL_fwd(speed);
+//   FR_fwd(speed);
+//   RR_fwd(speed);
+// }
 
-void FL_rev(int speed){
-  digitalWrite(LEFT_AIN1,0);
-  digitalWrite(LEFT_AIN2,1);
-  ledcWrite(pwmChannel_left, speed);
-}
-
-void RL_fwd(int speed){
-  digitalWrite(LEFT_BIN1,1);
-  digitalWrite(LEFT_BIN2,0);
-  ledcWrite(pwmChannel_left, speed);
-}
-
-void RL_rev(int speed){
-  digitalWrite(LEFT_BIN1,0);
-  digitalWrite(LEFT_BIN2,1);
-  ledcWrite(pwmChannel_left, speed);
-}
-
-void FR_fwd(int speed){
-  digitalWrite(RIGHT_AIN1,1);
-  digitalWrite(RIGHT_AIN2,0);
-  ledcWrite(pwmChannel_right, speed);
-}
-
-void FR_rev(int speed){
-  digitalWrite(RIGHT_AIN1,0);
-  digitalWrite(RIGHT_AIN2,1);
-  ledcWrite(pwmChannel_right, speed);
-}
-
-void RR_fwd(int speed){
-  digitalWrite(RIGHT_BIN1,1);
-  digitalWrite(RIGHT_BIN2,0);
-  ledcWrite(pwmChannel_right, speed);
-}
-
-void RR_rev(int speed){
-  digitalWrite(RIGHT_BIN1,0);
-  digitalWrite(RIGHT_BIN2,1);
-  ledcWrite(pwmChannel_right, speed);
-}
-
-void brake(int speed){
-  digitalWrite(LEFT_AIN1,1);
-  digitalWrite(LEFT_AIN2,1);  
-  digitalWrite(LEFT_BIN1,1);
-  digitalWrite(LEFT_BIN2,1);
-  ledcWrite(pwmChannel_left, speed);  
-  digitalWrite(RIGHT_AIN1,1);
-  digitalWrite(RIGHT_AIN2,1);
-  digitalWrite(RIGHT_BIN1,1);
-  digitalWrite(RIGHT_BIN2,1);
-  ledcWrite(pwmChannel_right, speed);  
-}
-
-// Standard Wheel Movement Function
-void std_fwd(int speed){
-  FL_fwd(speed);
-  RL_fwd(speed);
-  FR_fwd(speed);
-  RR_fwd(speed);
-}
-
-void std_rev(int speed){
-  FL_rev(speed);
-  RL_rev(speed);
-  FR_rev(speed);
-  RR_rev(speed);
-}
+// void std_rev(int speed){
+//   FL_rev(speed);
+//   RL_rev(speed);
+//   FR_rev(speed);
+//   RR_rev(speed);
+// }
 
 void std_left_fwd(int speed_1, int speed_2){
 
