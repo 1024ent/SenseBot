@@ -1,6 +1,6 @@
 /**
  * @file mecanum_movement.h
- * @brief Managing PS4 Controller Information
+ * @brief Managing Mecanum Wheel Movement
  * @copyright UMPSA ROBOTICS
  * @license Apache-2.0
  * @author Loo Hui Kie [ELPROG]
