@@ -6,12 +6,15 @@
  * @author Loo Hui Kie [ELPROG]
  */
 
-#ifndef __MTD_MOVEMENT_H__
+#ifndef __STD_MOVEMENT_H__
 #define __STD_MOVEMENT_H__
 
-#include "tb6612.h"
-#include "PS4Controller.h"
-
-void controller_manager(void *pvParameters);
+// Standard Wheel Movement Function Declaration
+void std_fwd(int speed);            // Standard Wheel Move Foward 
+void std_rev(int speed);            // Standard Wheel Reverse
+void std_left_fwd(int speed);       // Standard Wheel Move Forward Left
+void std_right_fwd(int speed);      // Standard Wheel Move Forward Right
+void std_left_rev(int speed);       // Standard Wheel Reverse Left
+void std_right_rev(int speed);      // Standard Wheel Reverse Right
 
 #endif 
