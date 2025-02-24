@@ -42,14 +42,14 @@ void Motor::fwd(int speed)
 {
    digitalWrite(In1, HIGH);
    digitalWrite(In2, LOW);
-   ledcWrite(PWM, speed);
+   ledcWrite(PWM_Channel, speed);
 }
 
 void Motor::rev(int speed)
 {
    digitalWrite(In1, LOW);
    digitalWrite(In2, HIGH);
-   ledcWrite(PWM, speed);
+   ledcWrite(PWM_Channel, speed);
 }
 
 void Motor::brake()

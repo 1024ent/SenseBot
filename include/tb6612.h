@@ -6,7 +6,12 @@
  * @author Loo Hui Kie [ELPROG]
  */
 
- // Speed and Delay Duration Declaration
+#ifndef TB6612_H__
+#define TB6612_H__
+
+#include <Arduino.h>
+
+// Speed and Delay Duration Declaration
 #define MID_SPEED 100    
 #define HIGH_SPEED 120    
 #define LOW_SPEED 90
@@ -14,16 +19,7 @@
 #define DELAY_TIME 80 
 #define SHORT_DELAY_TIME 70 
 
-// PWM Channel Declaration
-const int pwmChannel_left = 1;       // PWM channel (0-15)
-const int pwmFrequency_left = 5000;  // Frequency in Hz
-const int pwmResolution_left = 8;    // Resolution in bits (0-255)
-const int pwmChannel_right = 0;       // PWM channel (0-15)
-const int pwmFrequency_right = 5000;  // Frequency in Hz
-const int pwmResolution_right = 8;    // Resolution in bits (0-255)
-
-class Motor
-{
+class Motor{
   public:
     // Constructor. Mainly sets up pins.
     Motor(int In1pin, int In2pin, int PWMchannel, int PWMpin, int offset, int STBYpin);      
@@ -50,3 +46,5 @@ class Motor
 	void fwd(int speed);
 	void rev(int speed);
 };
+
+#endif

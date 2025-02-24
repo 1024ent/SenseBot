@@ -6,9 +6,9 @@
  * @author Loo Hui Kie [ELPROG]
  */
 
- #ifndef __THREAD_MANAGER_H__
- #define __THREAD_MANAGER_H__
- 
- void thread_manager();
- 
- #endif
+#ifndef __THREAD_MANAGER_H__
+#define __THREAD_MANAGER_H__
+
+void thread_manager();
+
+#endif

@@ -11,7 +11,7 @@
 
 /** OUTPUT PINS DECLARATION */
 // TB6612FNG STBY PIN
-#define   STBY        10
+#define   STBY        23
 
 // TB6612FNG PWM PIN LEFT MOTOR
 #define   LEFT_PWM    13
@@ -44,8 +44,7 @@ const int RR_offset = 1;
 /** THREAD INDICATOR **/
 #define BLINK_GPIO1 GPIO_NUM_2
 
-/** MOTOR DRIVER **/
-
+void motor_output_instances();
 void init_output_instances();
 
 #endif

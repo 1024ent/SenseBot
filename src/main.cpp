@@ -15,6 +15,11 @@
 #include "mecanum_movement.h"
 #include "tb6612.h"
 
+Motor FL_Motor = Motor(LEFT_AIN1,LEFT_AIN2,pwmChannel_left,LEFT_PWM,FL_offset,STBY);
+Motor RL_Motor = Motor(LEFT_BIN1,LEFT_BIN2,pwmChannel_left,LEFT_PWM,RL_offset,STBY);
+Motor FR_Motor = Motor(RIGHT_AIN1,RIGHT_AIN2,pwmChannel_right,RIGHT_PWM,FR_offset,STBY);
+Motor RR_Motor = Motor(RIGHT_BIN1,RIGHT_BIN2,pwmChannel_right,RIGHT_PWM,RR_offset,STBY);
+
 // Standard Wheel Movement Function Declaration
 void std_fwd(int speed);                                  // Standard Wheel Move Foward 
 void std_rev(int speed);                                  // Standard Wheel Reverse
@@ -49,7 +54,7 @@ void setup()
 
 void loop() 
 {
-
+  FL_Motor.drive(255,1000);
 }
 
 // // Standard Wheel Movement Function
