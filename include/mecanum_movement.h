@@ -20,7 +20,5 @@ void mecanum_left_fwd(int speed);           // Mecanum Wheel Move to the Left
 void mecanum_right_fwd(int speed);          // Mecanum Wheel Move to the Right
 void mecanum_left_rev(int speed);           // Mecanum Wheel Reverse Left
 void mecanum_right_rev(int speed);          // Mecanum Wheel Reverse Right
-void mecanum_sharp_right_turn(int speed);   // Mecanum Wheel Move Sharp Right
-void mecanum_sharp_left_turn(int speed);    // Mecanum Wheel Move Sharp Left
 
 #endif 
