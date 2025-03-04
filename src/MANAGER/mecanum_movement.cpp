@@ -16,6 +16,13 @@ Motor FR_Motor = Motor(RIGHT_AIN1,RIGHT_AIN2,pwmChannel_right,RIGHT_PWM,FR_offse
 Motor RR_Motor = Motor(RIGHT_BIN1,RIGHT_BIN2,pwmChannel_right,RIGHT_PWM,RR_offset,STBY);
 
 // Mecanum Wheel Movement Function
+void mecanum_stp(){
+    FL_Motor.brake();
+    RL_Motor.brake();
+    FR_Motor.brake();
+    RR_Motor.brake(); 
+}
+
 void mecanum_move_fwd(int speed){
     FL_Motor.drive(-speed);
     RL_Motor.drive(-speed);

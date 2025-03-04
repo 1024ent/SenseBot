@@ -11,38 +11,38 @@
 
 /** OUTPUT PINS DECLARATION */
 // TB6612FNG STBY PIN
-#define   STBY        23
+#define     STBY        GPIO_NUM_23
 
 // TB6612FNG PWM PIN LEFT MOTOR
-#define   LEFT_PWM    13
-const int pwmChannel_left = 1;       // PWM channel (0-15)
+#define     LEFT_PWM    GPIO_NUM_4
+const int pwmChannel_left = 0;       // PWM channel (0-15)
 const int FL_offset = 1;
 const int RL_offset = 1;
 
 // TB6612FNG PWM PIN RIGHT MOTOR
-#define   RIGHT_PWM   4
-const int pwmChannel_right = 0;       // PWM channel (0-15)
+#define     RIGHT_PWM   GPIO_NUM_13
+const int pwmChannel_right = 1;       // PWM channel (0-15)
 const int FR_offset = 1;
 const int RR_offset = 1;
 
 // LEFT FRONT MOTOR
-#define   LEFT_AIN1  27
-#define   LEFT_AIN2  14
+#define     LEFT_AIN1  GPIO_NUM_21
+#define     LEFT_AIN2  GPIO_NUM_22
 
 // LEFT REAR MOTOR
-#define   LEFT_BIN1  26
-#define   LEFT_BIN2  25
+#define     LEFT_BIN1   GPIO_NUM_19
+#define     LEFT_BIN2   GPIO_NUM_18
 
 // RIGHT FRONT MOTOR
-#define   RIGHT_AIN1  19
-#define   RIGHT_AIN2  18
+#define     RIGHT_AIN1  GPIO_NUM_27
+#define     RIGHT_AIN2  GPIO_NUM_14
 
 // RIGHT REAR MOTOR
-#define   RIGHT_BIN1  21
-#define   RIGHT_BIN2  22
+#define     RIGHT_BIN1  GPIO_NUM_26
+#define     RIGHT_BIN2  GPIO_NUM_25
 
 /** THREAD INDICATOR **/
-#define BLINK_GPIO1 GPIO_NUM_2
+#define     BLINK_GPIO1 GPIO_NUM_2
 
 void motor_output_instances();
 void init_output_instances();

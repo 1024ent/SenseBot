@@ -11,14 +11,6 @@
 
 #include <Arduino.h>
 
-// Speed and Delay Duration Declaration
-#define MID_SPEED 100    
-#define HIGH_SPEED 120    
-#define LOW_SPEED 90
-#define LONG_DELAY_TIME 110 
-#define DELAY_TIME 80 
-#define SHORT_DELAY_TIME 70 
-
 class Motor{
   public:
     // Constructor. Mainly sets up pins.

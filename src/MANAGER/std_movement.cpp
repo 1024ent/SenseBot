@@ -9,6 +9,7 @@
 #include <Arduino.h>
 #include "output_config.h"
 #include "tb6612.h"
+#include "std_movement.h"
 
 const int offset = 0.5;
 
@@ -18,6 +19,14 @@ Motor FR_Motor = Motor(RIGHT_AIN1,RIGHT_AIN2,pwmChannel_right,RIGHT_PWM,FR_offse
 Motor RR_Motor = Motor(RIGHT_BIN1,RIGHT_BIN2,pwmChannel_right,RIGHT_PWM,RR_offset,STBY);
 
 // Standard Wheel Movement Function
+
+void std_stp(){
+    FL_Motor.brake();
+    RL_Motor.brake();
+    FR_Motor.brake();
+    RR_Motor.brake();   
+}
+
 void std_fwd(int speed){
     FL_Motor.drive(-speed);
     RL_Motor.drive(-speed);

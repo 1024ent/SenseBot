@@ -10,6 +10,7 @@
 #define __MECANUM_MOVEMENT_H__
 
 // Mecanum Wheel Movement Function Declaration
+void mecanum_stp();                         // Mecanum Wheel Stop
 void mecanum_move_fwd(int speed);           // Mecanum Wheel Move Foward
 void mecanum_move_rev(int speed);           // Mecanum Wheel Reverse
 void mecanum_shift_left(int speed);         // Mecanum Wheel Shift to the Left

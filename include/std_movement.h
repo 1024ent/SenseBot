@@ -10,6 +10,7 @@
 #define __STD_MOVEMENT_H__
 
 // Standard Wheel Movement Function Declaration
+void std_stp();            // Standard Wheel Brake
 void std_fwd(int speed);            // Standard Wheel Move Foward 
 void std_rev(int speed);            // Standard Wheel Reverse
 void std_left_fwd(int speed);       // Standard Wheel Move Forward Left
