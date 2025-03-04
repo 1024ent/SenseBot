@@ -15,6 +15,8 @@
 #include "mecanum_movement.h"
 #include "tb6612.h"
 
+void thread_indicator(void *pvParameters);
+
 void setup() 
 {
   Serial.begin(115200);
@@ -25,7 +27,4 @@ void setup()
   thread_manager();
 }
 
-void loop() 
-{
-
-}
+void loop() {}

@@ -13,13 +13,11 @@
 #include "mecanum_movement.h"
 #include "controller_manager.h"
 
-TaskHandle_t myThreadIndicator1 = NULL;
-TaskHandle_t myController = NULL;
-TaskHandle_t myMPU = NULL;
-TaskHandle_t myUART = NULL;
-TaskHandle_t myMovement = NULL;
-TaskHandle_t myLogging = NULL;
-TaskHandle_t myImu = NULL;
+/** Tasks Structs **/
+TaskHandle_t BlinkTaskHandle;
+
+/** Functions **/
+void thread_indicator(void *pvParameters);
 
 /**
  * @brief Initialising threads and spawn them
@@ -37,4 +35,5 @@ void thread_manager()
      *                          TaskHandle_t * const pxCreatedTask) PRIVILEGED_FUNCTION
      */
     //xTaskCreate(send_and_parse_value, "Connecting to UART ...", 10000, NULL, tskIDLE_PRIORITY, &myUART);
+    xTaskCreate(thread_indicator, "Blinking LED..", 128, NULL, 1, &BlinkTaskHandle);
 }
