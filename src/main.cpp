@@ -15,8 +15,6 @@
 #include "mecanum_movement.h"
 #include "tb6612.h"
 
-void thread_indicator(void *pvParameters);
-
 void setup() 
 {
   Serial.begin(115200);
@@ -24,7 +22,9 @@ void setup()
   init_input_instances();
   init_output_instances();
 
-  thread_manager();
+  // thread_manager();
 }
 
-void loop() {}
+void loop() {
+  mecanum_left_fwd(120);
+}

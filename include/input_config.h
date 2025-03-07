@@ -10,6 +10,8 @@
 #define __INPUT_CONFIG_H__
 
 /** INPUT PINS DECLARATION */
+#define PS4_MAC_ADDRESS "14:2b:2f:c0:28:fe"
+
 /** Line Sensor **/ 
 #define   LINE_D1     33
 #define   LINE_D2     32

@@ -8,16 +8,14 @@
 
 #include <Arduino.h>
 #include "driver/gpio.h"
+#include "blink_manager.h"
 #include "sdkconfig.h"
 #include "std_movement.h"
 #include "mecanum_movement.h"
 #include "controller_manager.h"
 
 /** Tasks Structs **/
-TaskHandle_t BlinkTaskHandle;
-
-/** Functions **/
-void thread_indicator(void *pvParameters);
+TaskHandle_t myThreadIndicator = NULL;
 
 /**
  * @brief Initialising threads and spawn them
@@ -35,5 +33,5 @@ void thread_manager()
      *                          TaskHandle_t * const pxCreatedTask) PRIVILEGED_FUNCTION
      */
     //xTaskCreate(send_and_parse_value, "Connecting to UART ...", 10000, NULL, tskIDLE_PRIORITY, &myUART);
-    xTaskCreate(thread_indicator, "Blinking LED..", 128, NULL, 1, &BlinkTaskHandle);
+    xTaskCreate(thread_indicator, "Blinking LED", 4096, NULL, 1, &myThreadIndicator);
 }

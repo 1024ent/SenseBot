@@ -11,17 +11,17 @@
  #include "sdkconfig.h"
  #include "output_config.h"
  
- /**
-  * @brief Blinking LED1 as a thread indicator and PCB is working
-  * @return PCB LED1 blinking
-  */
- void thread_indicator(void *pvParameters)
- {
-     for (;;)
-     {
-         gpio_set_level(BLINK_GPIO1, 0);
-         vTaskDelay(100 / portTICK_PERIOD_MS);
-         gpio_set_level(BLINK_GPIO1, 1);
-         vTaskDelay(100 / portTICK_PERIOD_MS);
-     }
- }
+/**
+ * @brief Blinking LED1 as a thread indicator and PCB is working
+ * @return PCB LED1 blinking
+ */
+void thread_indicator(void *pvParameters)
+{
+    for (;;)
+    {
+        gpio_set_level(BLINK_GPIO1, 0);
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+        gpio_set_level(BLINK_GPIO1, 1);
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+    }
+}
