@@ -22,9 +22,8 @@ void setup()
   init_input_instances();
   init_output_instances();
 
-  // thread_manager();
+  thread_manager();
 }
 
 void loop() {
-  mecanum_left_fwd(120);
 }

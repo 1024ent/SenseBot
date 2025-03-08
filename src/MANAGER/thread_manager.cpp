@@ -12,26 +12,63 @@
 #include "sdkconfig.h"
 #include "std_movement.h"
 #include "mecanum_movement.h"
+#include "line_following.h"
 #include "controller_manager.h"
 
-/** Tasks Structs **/
+/** 
+ * @brief Task handles for managing different threads 
+ */
 TaskHandle_t myThreadIndicator = NULL;
+TaskHandle_t stdLineFollowing = NULL;
+TaskHandle_t mcnLineFollowing = NULL;
 
 /**
- * @brief Initialising threads and spawn them
+ * @brief Initializes and creates tasks for concurrent execution.
+ * 
+ * This function sets up FreeRTOS tasks, assigning them to specific CPU cores 
+ * for optimized performance. Tasks will execute according to their assigned priority.
  */
 void thread_manager()
 {
     /**
-     * @brief Creating tasks to run simultaneously according to priority
-     * @details xTaskCreate(
-     *                           TaskFunction_t pvTaskCode, [name of task function]
-     *                           const char * const pcName, [messages]
-     *                           const uint32_t usStackDepth, [Words, not bytes!]
-     *                          void * const pvParameters, [usually NULL]
-     *                           UBaseType_t uxPriority, [priority level (1(LOWEST) to 15(HIGHEST))]
-     *                          TaskHandle_t * const pxCreatedTask) PRIVILEGED_FUNCTION
+     * @brief Creating FreeRTOS tasks and assigning them to cores.
+     * 
+     * @details xTaskCreatePinnedToCore(
+     *            TaskFunction_t pvTaskCode,   // Pointer to the function implementing the task
+     *            const char *pcName,         // Name of the task (for debugging)
+     *            uint32_t usStackDepth,      // Stack size allocated to the task (in words)
+     *            void *pvParameters,         // Task parameters (set to NULL if unused)
+     *            UBaseType_t uxPriority,     // Task priority (1 = lowest, 15 = highest)
+     *            TaskHandle_t *pxCreatedTask,// Handle for the created task
+     *            BaseType_t xCoreID          // Core to which the task is pinned (0 or 1)
+     *          )
      */
-    //xTaskCreate(send_and_parse_value, "Connecting to UART ...", 10000, NULL, tskIDLE_PRIORITY, &myUART);
-    xTaskCreate(thread_indicator, "Blinking LED", 4096, NULL, 1, &myThreadIndicator);
+
+    // Task for blinking an LED to indicate system status (Runs on Core 0 with low priority)
+    xTaskCreatePinnedToCore(thread_indicator, 
+                            "Blinking LED", 
+                            2048, 
+                            NULL, 
+                            1, 
+                            &myThreadIndicator, 
+                            0);
+
+    // Uncomment if using standard wheel line-following task
+    // xTaskCreatePinnedToCore(line_following_std, 
+    //                         "Standard Wheel Line Following", 
+    //                         4096, 
+    //                         NULL, 
+    //                         1, 
+    //                         &stdLineFollowing, 
+    //                         1);
+
+    // Task for line-following using a mecanum wheel system (Runs on Core 1)
+    xTaskCreatePinnedToCore(line_following_mecanum, 
+                            "Mecanum Wheel Line Following", 
+                            4096, 
+                            NULL, 
+                            1, 
+                            &mcnLineFollowing, 
+                            1);
 }
+ 

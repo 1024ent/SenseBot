@@ -19,8 +19,8 @@
 #define     OFFSET_1            0.6
 #define     OFFSET_2            0.4
 
-void line_following_std();
-void line_following_mecanum();
+void line_following_std(void *pvParameters);
+void line_following_mecanum(void *pvParameters);
 
 #endif
 
