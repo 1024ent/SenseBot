@@ -55,21 +55,21 @@ void line_following_mecanum(void *pvParameters)
     int D4 = digitalRead(LINE_D4);
     int D5 = digitalRead(LINE_D5);
 
-    if (D1==0 && D2==1 && D3==1 && D4==1 && D5==0) {
+    if ((D1==0 && D2==1 && D3==1 && D4==1 && D5==0) || (D1==0 && D2==1 && D3==1 && D4==0 && D5==0) || (D1==0 && D2==0 && D3==1 && D4==1 && D5==0)) {
       //robot move forward
-      mecanum_move_fwd(HIGH_SPEED);
+      mecanum_move_fwd(MID_SPEED);
     } else if (D1==0 && D2==1 && D3==0 && D4==0 && D5==0) {
       //move to left
-      mecanum_left_fwd(HIGH_SPEED);
-    } else if (D1==1 && D2==0 && D3==0 && D4==0 && D5==0) {
+      mecanum_shift_left(MID_SPEED);
+    } else if (D1==1 && D2==1 && D3==0 && D4==0 && D5==0) {
       //robot slowing down, move more to left
-      mecanum_left_fwd(MID_SPEED);
+      mecanum_shift_left(LOW_SPEED);
     } else if (D1==0 && D2==0 && D3==0 && D4==1 && D5==0) {
       //move to right
-      mecanum_right_fwd(HIGH_SPEED);
-    } else if (D1==0 && D2==0 && D3==0 && D4==0 && D5==1) {
+      mecanum_shift_right(MID_SPEED);
+    } else if (D1==0 && D2==0 && D3==0 && D4==1 && D5==1) {
       //robot slowing down, move more to right
-      mecanum_right_fwd(MID_SPEED);
+      mecanum_shift_right(LOW_SPEED);
     } else {
       // stop robot
       mecanum_stp();

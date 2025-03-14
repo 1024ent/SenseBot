@@ -13,6 +13,7 @@
 #include "output_config.h"
 #include "std_movement.h"
 #include "mecanum_movement.h"
+#include "line_following.h"
 #include "tb6612.h"
 
 void setup() 
