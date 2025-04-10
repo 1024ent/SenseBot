@@ -15,11 +15,11 @@ void mecanum_move_fwd(int speed);           // Mecanum Wheel Move Foward
 void mecanum_move_rev(int speed);           // Mecanum Wheel Reverse
 void mecanum_shift_left(int speed);         // Mecanum Wheel Shift to the Left
 void mecanum_shift_right(int speed);        // Mecanum Wheel Shift to the Right
-void mecanum_turn_left(int speed);          // Mecanum Wheel Turn to the Left
-void mecanum_turn_right(int speed);         // Mecanum Wheel Turn to the Right
-void mecanum_left_fwd(int speed);           // Mecanum Wheel Move to the Left
-void mecanum_right_fwd(int speed);          // Mecanum Wheel Move to the Right
-void mecanum_left_rev(int speed);           // Mecanum Wheel Reverse Left
-void mecanum_right_rev(int speed);          // Mecanum Wheel Reverse Right
+void mecanum_fwd_left(int speed);         // Mecanum Wheel Move Forward Left Diagonally
+void mecanum_fwd_right(int speed);        // Mecanum Wheel Move Forward Right Diagonally
+void mecanum_rev_left(int speed);         // Mecanum Wheel Move Reverse Left Diagonally
+void mecanum_rev_right(int speed);        // Mecanum Wheel Move Reverse Right Diagonally
+void mecanum_rotate_cw(int speed);         // Mecanum Wheel Rotate Clockwise
+void mecanum_rotate_ccw(int speed);       // Mecanum Wheel Rotate Counter Clockwise
 
 #endif 

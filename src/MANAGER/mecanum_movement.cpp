@@ -10,6 +10,7 @@
 #include <Arduino.h>
 #include "output_config.h"
 #include "tb6612.h"
+#include "mecanum_movement.h"
 
 Motor MFL_Motor = Motor(LEFT_AIN1,LEFT_AIN2,pwmChannel_left,LEFT_PWM,FL_offset,STBY);
 Motor MRL_Motor = Motor(LEFT_BIN1,LEFT_BIN2,pwmChannel_left,LEFT_PWM,RL_offset,STBY);
@@ -27,70 +28,62 @@ void mecanum_stp(){
 void mecanum_move_fwd(int speed){
     MFL_Motor.drive(speed);
     MRL_Motor.drive(speed);
-    MFR_Motor.drive(-speed);
-    MRR_Motor.drive(-speed);
+    MFR_Motor.drive(speed);
+    MRR_Motor.drive(speed);
 }
 
 void mecanum_move_rev(int speed){
     MFL_Motor.drive(-speed);
     MRL_Motor.drive(-speed);
-    MFR_Motor.drive(speed);
-    MRR_Motor.drive(speed);
-}
-
-void mecanum_turn_right(int speed){
-    MFL_Motor.drive(speed);
-    MRL_Motor.drive(-speed);
-    MFR_Motor.drive(speed);
-    MRR_Motor.drive(-speed);
-}
-
-void mecanum_turn_left(int speed){
-    MFL_Motor.drive(-speed);
-    MRL_Motor.drive(speed);
     MFR_Motor.drive(-speed);
-    MRR_Motor.drive(speed);  
-}
-
-void mecanum_shift_left(int speed){
-    MFL_Motor.drive(speed);
-    MRL_Motor.drive(speed);
-    MFR_Motor.drive(speed);
-    MRR_Motor.drive(speed);
+    MRR_Motor.drive(-speed);
 }
 
 void mecanum_shift_right(int speed){
-    MFL_Motor.drive(-speed);
-    MRL_Motor.drive(-speed);
-    MFR_Motor.drive(-speed);
-    MRR_Motor.drive(-speed);
+    MFL_Motor.drive(speed);  
+    MRL_Motor.drive(-speed); 
+    MFR_Motor.drive(-speed);  
+    MRR_Motor.drive(speed); 
 }
 
-// redo
-void mecanum_right_fwd(int speed){
-    MFL_Motor.drive(0);
-    MRL_Motor.drive(-speed);
-    MFR_Motor.drive(speed);
-    MRR_Motor.drive(0);  
+void mecanum_shift_left(int speed){
+    MFL_Motor.drive(-speed); 
+    MRL_Motor.drive(speed);  
+    MFR_Motor.drive(speed); 
+    MRR_Motor.drive(-speed);  
 }
 
-void mecanum_left_fwd(int speed){
-    MFL_Motor.drive(-speed);
-    MRL_Motor.drive(0);
-    MFR_Motor.drive(0);
+void mecanum_fwd_left(int speed){
+    MRL_Motor.drive(speed); 
+    MFR_Motor.drive(speed); 
+
+}
+
+void mecanum_fwd_right(int speed){
+    MFL_Motor.drive(speed);
     MRR_Motor.drive(speed);
 }
 
-void mecanum_right_rev(int speed){
-    MFL_Motor.drive(0);
-    MRL_Motor.drive(speed);
-    MFR_Motor.drive(-speed);
-    MRR_Motor.drive(0);
+void mecanum_rev_left(int speed) { 
+    MFL_Motor.drive(-speed); 
+    MRR_Motor.drive(-speed); 
 }
 
-void mecanum_left_rev(int speed){
-    MFL_Motor.drive(speed);
-    MRL_Motor.drive(0);
-    MFR_Motor.drive(0);
-    MRR_Motor.drive(-speed);
+void mecanum_rev_right(int speed) {
+    MRL_Motor.drive(-speed); 
+    MFR_Motor.drive(-speed); 
+}
+
+void mecanum_rotate_cw(int speed) {
+    MFL_Motor.drive(speed); 
+    MRL_Motor.drive(-speed); 
+    MFR_Motor.drive(speed); 
+    MRR_Motor.drive(-speed); 
+}
+
+void mecanum_rotate_ccw(int speed) {
+    MFL_Motor.drive(-speed); 
+    MRL_Motor.drive(speed); 
+    MFR_Motor.drive(-speed); 
+    MRR_Motor.drive(speed); 
 }
