@@ -67,25 +67,25 @@ void line_following_mecanum(void *pvParameters)
     //move to left
     else if ((D1==1 && D2==1 && D3==0 && D4==0 && D5==0)||(D1==0 && D2==1 && D3==0 && D4==0 && D5==0))
     {
-      mecanum_shift_left(LOW_SPEED);
+      mecanum_turn_left(LOW_SPEED, OFFSET_1);
     } 
 
     //robot slowing down, move more to left
     else if ((D1==1 && D2==1 && D3==0 && D4==0 && D5==0) || (D1==1 && D2==1 && D3==1 && D4==0 && D5==0)|| (D1==1 && D2==1 && D3==1 && D4==1 && D5==0)) 
     {
-      mecanum_shift_left(LOW_SPEED);
+      mecanum_turn_left(LOW_SPEED, OFFSET_2);
     } 
     
   //move to right
     else if ((D1==0 && D2==0 && D3==0 && D4==1 && D5==1)||(D1==0 && D2==0 && D3==0 && D4==1 && D5==0)) 
     {
-      mecanum_shift_right(LOW_SPEED);
+      mecanum_turn_right(LOW_SPEED, OFFSET_1);
     } 
 
   //robot slowing down, move more to right
     else if ((D1==0 && D2==0 && D3==0 && D4==1 && D5==1) || (D1==0 && D2==0 && D3==1 && D4==1 && D5==1)|| (D1==0 && D2==1 && D3==1 && D4==1 && D5==1)) 
     {
-      mecanum_shift_right(LOW_SPEED);
+      mecanum_turn_right(LOW_SPEED, OFFSET_2);
     } 
     
   // else if ((D1==1 && D2==1 && D3==1 && D4==1 && D5==1)  || (D1==0 && D2==0 && D3==0 && D4==0 && D5==0))

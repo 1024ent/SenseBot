@@ -87,3 +87,17 @@ void mecanum_rotate_ccw(int speed) {
     MFR_Motor.drive(-speed); 
     MRR_Motor.drive(speed); 
 }
+
+void mecanum_turn_left(int speed, float offset) {
+    MFL_Motor.drive(speed * offset);
+    MRL_Motor.drive(speed * offset);
+    MFR_Motor.drive(speed);
+    MRR_Motor.drive(speed);    
+}
+
+void mecanum_turn_right(int speed, float offset) {
+    MFL_Motor.drive(speed);
+    MRL_Motor.drive(speed);
+    MFR_Motor.drive(speed * offset);
+    MRR_Motor.drive(speed * offset); 
+}

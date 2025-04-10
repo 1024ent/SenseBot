@@ -21,5 +21,7 @@ void mecanum_rev_left(int speed);         // Mecanum Wheel Move Reverse Left Dia
 void mecanum_rev_right(int speed);        // Mecanum Wheel Move Reverse Right Diagonally
 void mecanum_rotate_cw(int speed);         // Mecanum Wheel Rotate Clockwise
 void mecanum_rotate_ccw(int speed);       // Mecanum Wheel Rotate Counter Clockwise
+void mecanum_turn_left(int speed, float offset);         // Mecanum Wheel Turn Left
+void mecanum_turn_right(int speed, float offset);        // Mecanum Wheel Turn Right
 
 #endif 
