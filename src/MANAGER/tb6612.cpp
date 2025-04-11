@@ -56,7 +56,7 @@ void Motor::brake()
 {
    digitalWrite(In1, HIGH);
    digitalWrite(In2, HIGH);
-   ledcWrite(PWM,0);
+   ledcWrite(PWM_Channel,0);
 }
 
 void Motor::standby()

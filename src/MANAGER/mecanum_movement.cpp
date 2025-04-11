@@ -101,3 +101,13 @@ void mecanum_turn_right(int speed, float offset) {
     MFR_Motor.drive(speed * offset);
     MRR_Motor.drive(speed * offset); 
 }
+
+void mecanum_turn_front_cw(int speed) {
+    MRL_Motor.drive(speed); 
+    MRR_Motor.drive(-speed); 
+}
+
+void mecanum_turn_front_ccw(int speed) {
+    MRL_Motor.drive(-speed); 
+    MRR_Motor.drive(speed);
+}
