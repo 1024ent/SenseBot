@@ -16,8 +16,8 @@
 #define     LONG_DELAY_TIME     110 
 #define     DELAY_TIME          80 
 #define     SHORT_DELAY_TIME    70 
-#define     OFFSET_1            0.6
-#define     OFFSET_2            0.4
+#define     OFFSET_1            0.2
+#define     OFFSET_2            0.1
 
 void line_following_std(void *pvParameters);
 void line_following_mecanum(void *pvParameters);
